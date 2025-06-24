@@ -54,7 +54,7 @@ const Navbar = () => {
   const { openSignIn } = useClerk();
   const { user } = useUser();
   const navigate = useNavigate();
-  const { button } = UserButton();
+  // const { button } = UserButton();
   const location = useLocation();
 
   useEffect(() => {
