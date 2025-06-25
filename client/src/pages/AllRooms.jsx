@@ -4,33 +4,32 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating";
 
 const AllRooms = () => {
-  const CheckBOx = ({ label, selected = false, onchange = () => {} }) => {
+  const CheckBOx = ({ label, selected = false, onChange = () => {} }) => {
     return (
       <label className="flex gap-3 items-center cursor-pointer mt-2 text-sm">
         <input
           type="checkbox"
           checked={selected}
-          onchange={(e) => onchange(e.target.checked, label)}
+          onChange={(e) => onChange(e.target.checked, label)}
         />
         <span className="font-light select-none">{label}</span>
       </label>
     );
   };
 
-   const RadioButton = ({ label, selected = false, onchange = () => {} }) => {
+  const RadioButton = ({ label, selected = false, onChange = () => {} }) => {
     return (
       <label className="flex gap-3 items-center cursor-pointer mt-2 text-sm">
         <input
           type="Radio"
           name="sortOptions"
           checked={selected}
-          onchange={() => onchange(label)}
+          onChange={() => onChange(label)}
         />
         <span className="font-light select-none">{label}</span>
       </label>
     );
   };
-
 
   const navigate = useNavigate();
   const [openFilters, setOpenFilters] = useState(false);
@@ -141,20 +140,20 @@ const AllRooms = () => {
           >
             <div className="px-5 pt-5">
               <p className="font-medium text-gray-500">Popular Filters</p>
-              {roomTypes.map((room, index)=>(
-              <CheckBOx key={index} label={room}/>
+              {roomTypes.map((room, index) => (
+                <CheckBOx key={index} label={room} />
               ))}
             </div>
             <div className="px-5 pt-5">
               <p className="font-medium text-gray-500">Price Ranges</p>
-              {priceRanges.map((range, index)=>(
-              <CheckBOx key={index} label={`${range}`}/>
+              {priceRanges.map((range, index) => (
+                <CheckBOx key={index} label={`${range}`} />
               ))}
             </div>
             <div className="px-5 pt-5 pb-7">
               <p className="font-medium text-gray-500">Sort By</p>
-              {sortOptions.map((options, index)=>(
-              <RadioButton key={index} label={options}/>
+              {sortOptions.map((options, index) => (
+                <RadioButton key={index} label={options} />
               ))}
             </div>
           </div>
